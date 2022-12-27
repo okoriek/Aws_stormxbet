@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'website/custom.css' %}">
+<section class="dashboard-content pt-120">
+    <div class="overlay">
+        <div class="dashboard-heading">
+            <div class="container">
+                <div class="row justify-content-lg-end justify-content-between">
+                    <div class="col-xl-9 col-lg-12">
+                        <ul class="nav" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="dashboard-tab" data-bs-toggle="tab"
+                                    data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
+                                    aria-selected="true">dashboard</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'payment' %}"><button class="nav-link" id="deposit-tab"
+                                        type="button" aria-selected="false">deposit</button></a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'withdrawal' %}"><button class="nav-link" id="deposit-tab"
+                                        type="button" aria-selected="false">Withdraw</button></a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'affiliate' %}"><button class="nav-link" id="deposit-tab"
+                                        type="button" aria-selected="false">affiliate</button></a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'history' %}"><button class="nav-link" id="deposit-tab"
+                                        type="button" aria-selected="false">Transactions</button></a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="setting-tab" data-bs-toggle="tab" data-bs-target="#setting"
+                                    type="button" role="tab" aria-controls="setting"
+                                    aria-selected="false">settings</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                <div class="dashboard-sidebar">
+                    <div class="single-item">
+                        <img src="{% static 'assets/images/profile-img-1.png' %}" alt="images">
+                        <h5 >{{request.user.first_name}} {{request.user.last_name}}</h5>
+                        <p>Ref_ID: {{request.user.code}}</p>
+                    </div>
+                    <div class="balance">
+                        <div class="single-item">
+                            <img src="{% static 'assets/images/icon/dashboard-sidebar-icon-1.png' %}" alt="images">
+                            <h5>₦ {{request.user.balance}}</h5>
+                            <p>Available Balance</p>
+                        </div>
+                        <div class="bottom-area d-flex align-items-center justify-content-between">
+                            <a href="{% url 'withdrawal' %}" class="mdr withdraw-btn">Withdraw</a>
+                            <a href="{% url 'payment' %}" class="mdr deposit-btn">Deposit</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{% static 'assets/images/icon/dashboard-sidebar-icon-2.png' %}" alt="images">
+                        <h5>Need Help?</h5>
+                        <p class="mdr">Have questions? Our experts are here to help!.</p>
+                        <span class="btn-border">
+                            <a href="contact.html" class="cmn-btn">Get Start Now</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="dashboard" role="tabpanel"
+                        aria-labelledby="dashboard-tab">
+                        <div class="row">
+                            {% if form.errors %}
+                            <center><span class="error">{{form.errors}}</span></center>
+                            {% endif %}
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="single-info">
+                                    <img src="{% static 'assets/images/icon/user-info-icon-1.png' %}" alt="icon">
+                                    <div class="text-area">
+                                        <h4>678</h4>
+                                        <p class="mdr">Total Match</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="single-info">
+                                    <img src="{% static 'assets/images/icon/user-info-icon-2.png' %}" alt="icon">
+                                    <div class="text-area">
+                                        <h4>91%</h4>
+                                        <p class="mdr">Win Ratio</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="single-info">
+                                    <img src="{% static 'assets/images/icon/user-info-icon-3.png' %}" alt="icon">
+                                    <div class="text-area">
+                                        <h4>{{request.user.commissions}}</h4>
+                                        <p class="mdr">Referral</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Referral Program session -->
+                            <div class="col-12">
+                                <h5 class="title">Referral</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Date/Time</th>
+                                                <th scope="col">user</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">commission</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for com in commission %}
+                                            <tr>
+                                                <th scope="row">{{com.date_created}}</th>
+                                                <td>{{com.user}}</td>
+                                                {% if com.completed %}
+                                                    <td style="color: green;">successful</td>
+                                                {% else %}
+                                                    <td style="color:red ;">failed</td>
+                                                {% endif %}
+                                                <td>{{com.reward}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <!-- Recent activity section-->
+                            <div class="col-12">
+                                <h5 class="title">Recent Activity</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Date/Time</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for histories in history %}
+                                            <tr>
+                                                <th scope="row">{{histories.date_created}}</th>
+                                                <td>{{histories.transaction}}</td>
+                                                {% if histories.confirm %}
+                                                    <td style="color: green;">successful</td>
+                                                {% else %}
+                                                    <td style="color:red ;">failed</td>
+                                                {% endif %}
+                                                <td>{{histories.amount}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

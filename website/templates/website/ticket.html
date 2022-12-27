@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body%}
+<link rel="stylesheet" href="{% static 'website/custom.css' %}">
+<div class="container-fluid">
+    <div class="successimg">
+        <img src="{% static 'assets/images/success.gif' %}" alt="" id="successimg">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-3 d-none d-lg-block ">
+            <img src="{% static 'assets\images\soccer-bets-bg.png' %}" height="200px" alt="unable to load image">
+        </div>
+
+        <div class="col-lg-6">
+            <div class="mb-3"><span class="px-2"><a href="{% url 'lottery' %}">Back</a></span></div>
+            <div class="row" id="history">
+                <div class="table-responsive">
+                    <table class="table text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">Week</th>
+                                <th scope="col">Picks</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date/Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for histories in history %}
+                            <tr class="tablerow">
+                                <td>{{histories.week}}</td>
+                                <td>{% for i in histories.selectednumber %}
+                                    <span class="pick">{{i}}</span>
+                                    {% endfor %}
+                                </td>
+                                <td>{% if histories.status == 'pending' %}
+                                    <span style="color:yellow"; >pending</span>
+                                    {% elif histories.status == 'won' %}
+                                    <span style="color:green"; >won</span>
+                                    {% else %}
+                                    <span style="color:red"; >loss</span>
+                                    {% endif %}</td>
+                                <th scope="row">{{histories.date_created|date:'y-m-d'}} ({{histories.date_created|time:'H:i'}})</th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-none d-lg-block    ">
+            <img src="{% static 'assets\images\soccer-bets-bg.png' %}" height="200px" alt="unable to load image">
+        </div>
+
+    </div>
+</div>
+{% endblock%}s

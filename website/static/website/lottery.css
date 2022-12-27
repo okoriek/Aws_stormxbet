@@ -1,0 +1,730 @@
+
+.gamebg{
+    background-color:  black;
+    height: auto;
+    width: 20rem;
+    margin-top: auto;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* for ipad screen */
+@media only screen and (min-width:768px){
+    .gamebg{
+        background-color:  black;
+        height: auto;
+        width: 23rem;
+        margin-top: auto;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #gamebgheaderlot{
+        font-size: xx-large;
+        float: right;
+        color: yellow;
+        margin-right: 10px;
+    }
+    .gamebgheaderlot{
+        font-size: xx-large;
+        float: left;
+        color: yellow;
+        margin-left: 10px;
+    }
+}
+/* for laptop screen*/
+@media only screen and (min-width:992px){
+    .gamebg{
+        background-color:  black;
+        height: auto;
+        width: 19rem;
+        margin-top: auto;
+        border-radius: 20px;
+        margin-bottom: 40px;
+       
+    }
+    #gamebgheaderlot{
+        font-size: xx-large;
+        float: right;
+        color: yellow;
+        margin-right: 10px;
+    }
+    .gamebgheaderlot{
+        font-size: xx-large;
+        float: left;
+        color: yellow;
+        margin-left: 10px;
+    }
+}
+
+.gamebgheader{
+    background-color:rgb(95, 9, 231) ;
+    margin-left: 0px;
+    color: yellow;
+    text-align: center;
+    font-size: xx-large;
+    height: 70px;
+    width: 100%;
+    padding-top: 30px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+/* first gameheader */
+#gamebgheaderlot{
+    font-size: x-large;
+    float: right;
+    color: yellow;
+    margin-right: 10px;
+}
+.gamebgheaderlot{
+    font-size: x-large;
+    float: left;
+    color: yellow;
+    margin-left: 10px;
+}
+.rounds{
+    font-size: xx-large;
+    margin-left: 10px;
+    color: yellow;
+    
+}
+.sphere {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 10px black;
+     
+}
+
+.unclicked {
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 50%;
+    height: 50px;
+    padding-bottom: 20px;
+    margin-left: 7.5px;
+    width: 50px;   
+}
+
+
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .unclicked {
+        display: inline-block;
+        margin-top: 20px;
+        border-radius: 50%;
+        height: 60px;
+        padding-bottom: 20px;
+        margin-left: 7.5px;
+        width: 60px;   
+    }
+}
+/* for large screen */
+@media only screen and (min-width:992px){
+    .unclicked {
+        display: inline-block;
+        margin-top: 20px;
+        border-radius: 50%;
+        height: 48px;
+        padding-bottom: 20px;
+        margin-left: 7.5px;
+        width: 48px; 
+          
+    }
+}
+
+
+.text{
+    margin-top: 10px;
+    font-size: large;
+}
+.balls{
+    display: inline;    
+}
+@media only screen and (min-width:992px){
+    .text{
+        margin-top: 0px;
+        font-size: medium;
+    }
+}
+
+.picks{
+    border: 2px solid yellow;
+    width: 98%;
+    height: 65px;
+    margin-top: 15px;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+.amt{
+    color: yellow;
+    margin-top: 20px;
+    
+}
+@media only screen and (min-width:768px){
+    .amt{
+        color: yellow;
+        margin-top: 20px;
+        
+    }   
+}
+/* for larger screen size */
+@media only screen and (min-width:768px){
+    #amount0{
+        width: 100%;
+        float:  right;
+        margin-right: 10px;
+        background: none;
+        border: 2px solid yellow;
+        color: yellow;
+        font-size: xx-large;
+    }
+    
+}
+#amount0{
+    width: 100%;
+    float:  right;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: none;
+    border: 2px solid yellow;
+    color: yellow;
+    font-size: xx-large;
+}
+/* for larger screen size */
+@media only screen and (min-width:768px){
+    #amount1{
+        width: 100%;
+        float:  right;
+        margin-right: 10px;
+        background: none;
+        border: 2px solid yellow;
+        color: yellow;
+        font-size: xx-large;
+    }
+    
+}
+#amount1{
+    width: 100%;
+    float:  right;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: none;
+    border: 2px solid yellow;
+    color: yellow;
+    font-size: xx-large;
+}
+/* for larger screen size */
+@media only screen and (min-width:768px){
+    #amount2{
+        width: 100%;
+        float:  right;
+        margin-right: 10px;
+        background: none;
+        border: 2px solid yellow;
+        color: yellow;
+        font-size: xx-large;
+    }
+    
+}
+#amount2{
+    width: 100%;
+    float:  right;
+    margin-right: 10px;
+    background: none;
+    margin-top: 10px;
+    border: 2px solid yellow;
+    color: yellow;
+    font-size: xx-large;
+}
+/* for larger screen size */
+@media only screen and (min-width:768px){
+    #amount3{
+        width: 100%;
+        float:  right;
+        margin-right: 10px;
+        background: none;
+        border: 2px solid yellow;
+        color: yellow;
+        font-size: xx-large;
+    }
+    
+}
+#amount3{
+    width: 100%;
+    float:  right;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: none;
+    border: 2px solid yellow;
+    color: yellow;
+    font-size: xx-large;
+}
+.clickcircle{
+    background-color: yellow;
+    border: 2px solid white;
+}
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .picks{
+        border: 2px solid yellow;
+        width: 98%;
+        height: 75px;
+        margin-top: 15px;
+        border-radius: 15px;
+        padding-left: 5px;
+        margin-bottom: 15px;
+    }
+    
+}
+/* for large screen */
+@media only screen and (min-width:992px){
+    .picks{
+        border: 2px solid yellow;
+        width: 98%;
+        height: 65px;
+        margin-top: 15px;
+        border-radius: 15px;
+        padding-left: 5px;
+    }
+    
+}
+.clicked0{
+    display: inline-block;
+    background: whitesmoke;
+    margin-top:5px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    height: 50px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+    width: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: inset -5px -5px 10px black;
+    
+
+}
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .clicked0{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 60px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 60px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+/* for laptop screen */
+@media only screen and (min-width:992px){
+    .clicked0{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 48px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 48px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+
+.clicked1{
+    display: inline-block;
+    background: whitesmoke;
+    margin-top:5px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    height: 50px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+    width: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: inset -5px -5px 10px black;
+
+}
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .clicked1{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 60px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 60px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+/* for laptop screen */
+@media only screen and (min-width:992px){
+    .clicked1{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 48px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 48px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+.clicked2{
+    display: inline-block;
+    background: whitesmoke;
+    margin-top:5px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    height: 50px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+    width: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: inset -5px -5px 10px black;
+
+}
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .clicked2{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 60px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 60px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+/* for laptop screen */
+@media only screen and (min-width:992px){
+    .clicked2{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 48px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 48px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+.clicked3{
+    display: inline-block;
+    background: whitesmoke;
+    margin-top:5px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    height: 50px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+    width: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: inset -5px -5px 10px black;
+
+}
+/* for ipad screen*/
+@media only screen and (min-width:768px){
+    .clicked3{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 60px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 60px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+/* for laptop screen */
+@media only screen and (min-width:992px){
+    .clicked3{
+        display: inline-block;
+        background: whitesmoke;
+        margin-top:5px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        height: 48px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+        width: 48px;
+        color: #000;
+        text-align: center;
+        padding-top: 15px;
+        font-size: x-large;
+        font-weight: bold;
+        box-shadow: inset -5px -5px 10px black;
+    
+    }
+}
+.successimg{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(46, 6, 97, 0.603);
+    border: none; 
+}
+#successimg{
+    display: none;
+    align-self: center;
+    position: relative;
+    margin-top: calc(100% - 30%);
+    margin-bottom: calc(100% - 30%);
+    margin-left: 16px;
+    border-radius: 20px;
+}
+/* for large screen */
+@media only screen and (min-width:992px){
+    #successimg{
+        display: none;
+        align-self: center;
+        position: relative;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .successimg{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(46, 6, 97, 0.603);
+        display: none;
+        border: none; 
+    }
+}
+/* for ipad devices */
+@media only screen and (min-width:768px){
+    #successimg{
+        display: none;
+        align-self: center;
+        position: relative;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .successimg{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(46, 6, 97, 0.603);
+        display: none;
+        border: none; 
+    }
+}
+.bal{
+    font-size: large;
+    
+}
+/* Result handling */
+#result{
+    background-color: black; 
+    height: 70px;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+    justify-items: center;
+    
+}
+.result{
+    display: inline-block;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    font-size: small;
+    padding-top: 5px;
+    text-align: center;
+    margin-left: 5px;
+
+}
+.wk{
+    margin-top: 20px;
+    color: yellow;
+    font-size: x-large;
+}
+
+/* for ipad screen screen above */
+@media only screen and (min-width:768px){
+    #result{
+        background-color: black; 
+        height: 70px;
+        width: 100%;
+        margin-bottom: 20px;
+        justify-content: center;
+        justify-items: center;
+        padding-left: calc(100% - 80%);
+        
+    }
+    .result{
+        display: inline-block;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        font-size: large;
+        padding-top: 8px;
+        text-align: center;
+        margin-left: 15px;
+    
+    }
+    .wk{
+        margin-top: 20px;
+        color: yellow;
+        font-size: x-large;
+    }
+}
+
+/* for laptop screen above */
+@media only screen and (min-width:992px){
+    #result{
+        background-color: black; 
+        height: 70px;
+        width: 100%;
+        margin-bottom: 20px;
+        justify-content: center;
+        justify-items: center;
+        padding-left: calc(100% - 70%);
+        
+    }
+    .result{
+        display: inline-block;
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        font-size: large;
+        padding-top: 8px;
+        text-align: center;
+        margin-left: 15px;
+    
+    }
+    .wk{
+        margin-top: 20px;
+        color: yellow;
+        font-size: x-large;
+    }
+}
+
+.span2{
+    float: right;
+    padding-right: 40px;
+    
+}
+.span1{
+    padding-left: 40px;
+}
+
+
+
+.transaction-content{
+    background-color: #322a71;
+    height: 90px;
+    margin-bottom: 10px;
+    padding-left: 40%;
+    
+    
+}
+.transaction-content li a{
+    padding-top: 25px;
+    display: block;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    
+}
+.transaction-content li{
+    float: left;
+}
+
+hr{
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(235, 230, 230, 0.986);
+}
+
+/** Spin wheel css **/
+
+
+
+
+
+
+
+
+
+
+
+
+
