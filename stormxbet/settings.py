@@ -35,7 +35,7 @@ FLUTTERWAVE_SECRET_KEY ='FLWSECK_TEST-30d35ad2524523a9d0ccea9586b86de0-X'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =True
+DEBUG =False
 
 ALLOWED_HOSTS = ['*']
 
