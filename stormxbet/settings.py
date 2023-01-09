@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 
  
@@ -154,7 +155,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DATABASES = {
-    'default': os.getenv('Stormxbet_Database')
+    'default': dj_database_url.parse(os.getenv('Stormxbet_Database'))
 }
 
 
