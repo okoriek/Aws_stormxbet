@@ -3,6 +3,7 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 import six
 import datetime
 from django.utils import timezone
+import django.dispatch
 
 
 
@@ -20,6 +21,10 @@ def RoundResult():
     for i in range(10):
         value = num.append(random.randint(1,20))
     return value
+
+
+
+
 
 
 

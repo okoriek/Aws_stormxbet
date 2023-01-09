@@ -35,7 +35,7 @@ FLUTTERWAVE_SECRET_KEY ='FLWSECK_TEST-30d35ad2524523a9d0ccea9586b86de0-X'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =False
+DEBUG =True
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'website.apps.WebsiteConfig',
     'paystack.apps.PaystackConfig',
     'flutterwave.apps.FlutterwaveConfig',
@@ -59,7 +60,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
-    'django_celery_beat',
     #'storages',
 ]
 
@@ -156,11 +156,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'Bet',
-        'USER':'postgres',
-        'PASSWORD':'46347223',
-        'HOST':'localhost',
-        'PORT':5432
+        'NAME':os.environ.get(),
+        'USER':os.environ.get(),
+        'PASSWORD':os.environ.get(),
+        'HOST':os.environ.get(),
+        'PORT':os.environ.get()
     }
 }
 
