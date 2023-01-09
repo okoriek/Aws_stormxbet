@@ -25,17 +25,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-h_-mw2x7)q**%bi%pjwaewxcuy*-ziit_5e-&q68l&*k=w7=$b'
-SECRET_KEY ='django-insecure-h_-mw2x7)q**%bi%pjwaewxcuy*-ziit_5e-&q68l&*k=w7=$b'
+SECRET_KEY =os.getenv('DJANGO_SECRET_KEY')
 
 
-PAYSTACK_PUBLIC_KEY ='pk_test_1bfedd2d003e06ff8e3dd6608c5cf8e4af6e3bad' 
-PAYSTACK_SECRET_KEY ='sk_test_9c401b00dbe5c711464411947179fa9e5870582c' 
-FLUTTERWAVE_PUBLIC_KEY ='FLWPUBK_TEST-1e07aacf87e94a2315d1b372df9971c7-X'
-FLUTTERWAVE_SECRET_KEY ='FLWSECK_TEST-30d35ad2524523a9d0ccea9586b86de0-X'
+PAYSTACK_PUBLIC_KEY =os.getenv('PAYSTACK_PUBLIC_KEY') 
+PAYSTACK_SECRET_KEY =os.getenv('PAYSTACK_SECRET_KEY') 
+FLUTTERWAVE_PUBLIC_KEY =os.getenv('FLUTTERWAVE_PUBLIC_KEY')
+FLUTTERWAVE_SECRET_KEY =os.getenv('FLUTTERWAVE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =True
+DEBUG =False
 
 ALLOWED_HOSTS = ['*']
 
@@ -143,7 +143,7 @@ STATIC_FILES = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-CELERY_BROKER_URL='amqp://guest:guest@localhost:5672//'
+
 
 
 
@@ -154,14 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.environ.get('Database'),
-        'USER':os.environ.get('Username'),
-        'PASSWORD':os.environ.get('Password'),
-        'HOST':os.environ.get('Hostname'),
-        'PORT':os.environ.get('Port')
-    }
+    'default': os.getenv('Stormxbet_Database')
 }
 
 
