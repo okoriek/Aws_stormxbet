@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-h_-mw2x7)q**%bi%pjwaewxcuy*-ziit_5e-&q68l&*k=w7=$b'
-SECRET_KEY =os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-h_-mw2x7)q**%bi%pjwaewxcuy*-ziit_5e-&q68l&*k=w7=$b'
+#SECRET_KEY =os.getenv('DJANGO_SECRET_KEY')
 
 
 PAYSTACK_PUBLIC_KEY =os.getenv('PAYSTACK_PUBLIC_KEY') 
@@ -61,7 +61,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
-    #'storages',
+    'storages',
 ]
 
 
@@ -174,14 +174,12 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #S3 BUCKETS CONFIG
 
+AWS_ACCESS_KEY_ID = 'AKIA2OYYUX6SNI3FTV6T'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'stormxbet'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-#AWS_ACCESS_KEY_ID = 'AKIA2OYYUX6SIGE2TEFP'
-#AWS_SECRET_ACCESS_KEY = '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'
-#AWS_STORAGE_BUCKET_NAME = 'kwex'
-#AWS_S3_FILE_OVERWRITE = False
-#AWS_DEFAULT_ACL = None
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
