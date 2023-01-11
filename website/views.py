@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from django.conf import settings
 from .utils import TokenGenerator
 from django.contrib import messages
@@ -75,7 +76,7 @@ def Register(request):
                 'token': TokenGenerator.make_token(user)
             })
             email = EmailMessage(subject=email_subject, body=email_body,
-                from_email=settings.EMAIL_HOST_USER, to=[user.email]
+                from_email='no_reply@stormxbet.com', to=[user.email]
                 )
             email.send()
             messages.success(request, 'A Verification Email has been sent to your Email please confirm')
@@ -253,6 +254,15 @@ def ConfirmingWithdrawalDetails(request):
     if request.method == 'POST':
         withdraw = WithdrawalPayment.objects.create(user=request.user,account_name= account_name, account_no = account, amount =amount, bank_code=bank_code, bank_name=bank_name)
         withdraw.save()
+
+        send_mail(
+            subject='Withdrawal Request',
+            message= f"{request.user} initiated a withdrawal for ₦{amount}, account_name: {account_name}, account_number: {account} to:{bank_name}",
+            from_email="no_replay@stormxbet.com",
+            recipient_list=['okoriek55@yahoo.com',],
+            fail_silently=True 
+        )
+        
         return redirect('/confirmdetails')
     
     return JsonResponse('successful', safe=False)
