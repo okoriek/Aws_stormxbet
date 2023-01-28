@@ -42,7 +42,6 @@ urlpatterns = [
     path('ticket_history/', views.Lotteryhistory, name='tickethistory'),
    path('lottery_result_history/', views.LotteryResultHistory, name='lotteryresulthistory'),
 
-   path('games/random10/', views.RandomTen, name='randomten'),
    path('datasubmit/', views.RecieveNumbers, name = 'receivenumbers'),
    path('getnumbers/', views.GetNumbers, name='numbers'),
    path('make_payment/', views.Payment, name='payment'),

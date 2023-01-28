@@ -3,23 +3,34 @@
 {% block body %}
 <link rel="stylesheet" href="{% static 'website/lottery.css' %}">
 <div class="container-fluid">
-    <div class="successimg">
-        <img src="{% static 'assets/images/sucessreverse.gif' %}" alt="" id="successimg">
-    </div>
     <br>
     <br>
     <br>
     <br>
     <div class="row">
+
+        <div class="success">
+            <img src="{% static 'assets/images/loader.gif' %}" alt="" id="process">
+            <img src="{% static 'assets/images/sucessreverse.gif' %}" alt="" id="success">
+        </div>
+
         <span id="result"></span>
+
         <div class="col-lg-3 d-none d-lg-block ">
             <img src="{% static 'assets\images\soccer-bets-bg.png' %}" height="200px" alt="unable to load image">
         </div>
-        
+
         <div class="col-lg-6">
-            <div class="mb-3"><span class="span1"><a href="{% url 'tickethistory' %}">History</a></span> <span class="span2"><a href="{% url 'lotteryresulthistory' %}">Results</a></span></div>
+
+            <div class="lottery-info mb-3">
+                <span class="lottery-info-text">Ball8</span>
+                <span id="lottery-btn"><i class="fa-solid fa-circle-info" id="lottery-info"></i></span>
+            </div>
+
+            <div class="mb-3"><span class="span1"><a href="{% url 'tickethistory' %}">History</a></span> <span
+                    class="span2"><a href="{% url 'lotteryresulthistory' %}">Results</a></span></div>
             <div class="row" id="gamebg">
-                
+
             </div>
         </div>
         <div class="col-lg-3 d-none d-lg-block    ">

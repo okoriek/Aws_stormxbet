@@ -20,7 +20,10 @@ from .form import FileterForm
 from django.contrib.auth.decorators import login_required
 from paystack.paystack import BankList, VerifyAccount, InitiatingTransfer, MakePayment
 
-
+   
+def Home(request):
+    
+    return render(request, 'website/home.html')
 
 def Loginsuccess(request):
     if request.user.is_staff:
@@ -32,10 +35,6 @@ def Logoutsuccess(request):
         return redirect('Admin:staff')
     else:
         return redirect('/')
-
-def Home(request):
-    return render(request, 'website/home.html')
-
 
 def EmailVerification(request, uidb64, token):
     try:
@@ -143,11 +142,6 @@ def GetBalance(request):
     profile =  Custom.objects.get(email = user)
     bal = profile.balance
     return JsonResponse({'balance': bal})
-    
-@login_required(login_url='/login')    
-def RandomTen(request):
-    
-    return render(request, 'website/randomten.html')
 
 def Lottery(request):
     return render(request, 'website/lottery.html')
