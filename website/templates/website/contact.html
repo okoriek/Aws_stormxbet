@@ -478,11 +478,7 @@
 
                 },
                 success: function (response) {
-                    $('#name').val('')
-                    $('#phone').val('')
-                    swal({
-                        text:  `${response}`,
-                    });
+                    
                 },
                 error: function (error) {
                     console.log(error)

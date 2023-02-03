@@ -77,6 +77,7 @@ def Register(request):
             email = EmailMessage(subject=email_subject, body=email_body,
                 from_email='no_reply@stormxbet.com', to=[user.email]
                 )
+            email.content_subtype='html'
             email.send()
             messages.success(request, 'A Verification Email has been sent to your Email please confirm')
             return redirect('/login')
@@ -356,7 +357,6 @@ def LotteryResult(request):
 def Lotteryhistory(request):
     history = Ticket.objects.all().filter(user = request.user).order_by('date_created')
     args = {'history': history}
-    print(args)
     return render(request, 'website/ticket.html', args)
     
 @login_required(login_url='/login')

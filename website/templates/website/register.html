@@ -10,10 +10,10 @@
         <div class="form-area">
             <form method="post">
                 {% if forms.errors %}
-                    <center><span class="error">{{forms.errors}}</span></center>
+                <center><span class="error">{{forms.errors}}</span></center>
                 {% endif %}
                 {% for message in messages %}
-                    <center><span class="success">{{message}}</span></center>
+                <center><span class="success">{{message}}</span></center>
                 {% endfor %}
                 <br>
                 {% csrf_token %}
@@ -58,12 +58,15 @@
                         <div class="single-input">
                             {{forms.password1.label_tag}}
                             {{forms.password1}}
+                            <p class="guild_text">Must contain at least one number,
+                                aphablet, and at least 8 or more characters</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.password2.label_tag}}
                             {{forms.password2}}
+                            <p class="guild_text_confirm"></p>
                         </div>
                     </div>
                     <span class="btn-border w-85 mt-5 mb-3">
@@ -71,11 +74,33 @@
                     </span>
                 </div>
             </form>
-            <center><span>Already a member? <a href="{% url 'login' %}" style="color: yellow; text-decoration: underline;">Login</a></span></center>
+            <center><span>Already a member? <a href="{% url 'login' %}"
+                        style="color: yellow; text-decoration: underline;">Login</a></span></center>
         </div>
     </div>
 </div>
 <script>
+    $('#id_password1').focus(function(){
+        $('.guild_text').css('display', 'flex')
+    })
+    $('#id_password1').blur(function(){
+        $('.guild_text').css('display', 'none')
+    })
 
+    $('#id_password2').keyup(function(){
+        if($('#id_password1').val() != $('#id_password2').val()){
+            $('.guild_text_confirm').text('Passworld does not match.')
+            $('.guild_text_confirm').css('color', 'red')
+            $('.guild_text_confirm').css('display', 'flex')
+        }
+        else{
+            $('.guild_text_confirm').text('Password match.')
+            $('.guild_text_confirm').css('color', 'green')
+            $('.guild_text_confirm').css('display', 'flex')
+        }
+    })
+    $('#id_password2').blur(function(){
+        $('.guild_text_confirm').css('display', 'none')
+    })
 </script>
 {% endblock %}
