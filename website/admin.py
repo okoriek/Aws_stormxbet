@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.sites.models import Site
 
 
 class AccountAdmin(UserAdmin):
@@ -40,4 +41,5 @@ admin.site.register(GameRound)
 admin.site.register(Ticket)
 admin.site.register(LotteryRound)
 admin.site.register(WithdrawalPayment)
+
 

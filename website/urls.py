@@ -10,7 +10,13 @@ from django.contrib.auth.views import (
    PasswordResetConfirmView,
    PasswordResetCompleteView
 )
+from .sitemaps import StaticSiteMap
+from django.contrib.sitemaps.views import sitemap
 
+
+sitemaps ={
+    'sitemap': StaticSiteMap 
+}
 
 
 
@@ -61,4 +67,8 @@ urlpatterns = [
    path('password_reset_done/', PasswordResetDoneView.as_view(template_name = 'password/passwordresetdone.html'), name='password_reset_done'),
    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name = 'password/passwordresetconfirm.html'), name='password_reset_confirm'),
    path('password_reset_complete/', PasswordResetCompleteView.as_view(template_name = 'password/passwordresetcomplete.html'), name='password_reset_complete'),
+
+
+
+   path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
