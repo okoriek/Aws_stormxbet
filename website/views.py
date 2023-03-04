@@ -39,9 +39,9 @@ def Logoutsuccess(request):
 def EmailVerification(request, uidb64, token):
     try:
         uid =  force_str(urlsafe_base64_decode(uidb64))
-        user = Custom.objects.get(pk=uid)
+        user = Account.objects.get(pk=uid)
         print(user)
-    except(TypeError,ValueError, OverflowError, Custom.DoesNotExist):
+    except(TypeError,ValueError, OverflowError, Account.DoesNotExist):
         user = None
         return HttpResponse(request, 'Your account could not be verified ')
     if user is not None and TokenGenerator.check_token(user, token):
@@ -54,7 +54,7 @@ def EmailVerification(request, uidb64, token):
 def Register(request):
     try:
         referal_code = request.POST.get('refercode')
-        referred = Custom.objects.get(code=referal_code)
+        referred = Account.objects.get(code=referal_code)
     except:
         pass
     if request.method == 'POST':
@@ -69,17 +69,17 @@ def Register(request):
             website = get_current_site(request).domain
             email_subject = 'Email Verification'
             email_body =  render_to_string('website/activation.html',{
-                'user':user,
+                'user':user.first_name,
                 'domain':website,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': TokenGenerator.make_token(user)
             })
             email = EmailMessage(subject=email_subject, body=email_body,
-                from_email='no_reply@stormxbet.com', to=[user.email]
+                from_email='admin@stormxbet.com', to=[user.email]
                 )
             email.content_subtype='html'
             email.send()
-            messages.success(request, 'A Verification Email has been sent to your Email please confirm')
+            messages.success(request, 'A Verification Mail has been sent to your Email,Activate your account to Login')
             return redirect('/login')
     else:
         forms = RegisterationForm()
@@ -88,7 +88,7 @@ def Register(request):
 
 @login_required(login_url='/login')
 def ChangePassword(request):
-    profile = Custom.objects.filter(recommended_by = request.user.username)
+    profile = Account.objects.filter(recommended_by = request.user.username)
     if request.method=='POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -140,7 +140,7 @@ def ContactUs(request):
 
 def GetBalance(request):
     user =  request.user
-    profile =  Custom.objects.get(email = user)
+    profile =  Account.objects.get(email = user)
     bal = profile.balance
     return JsonResponse({'balance': bal})
 
@@ -178,7 +178,7 @@ def RecieveNumbers(request):
     if request.POST:
         new = Game.objects.create(user = email, selectednumber=selectednum, week=gaming, amount=int(amount) )
         new.save()
-        user = Custom.objects.get(email = email)
+        user = Account.objects.get(email = email)
         user.balance -= int(amount)
         user.save()
     return HttpResponse('submitted successfully')
@@ -323,7 +323,7 @@ def LotteryRecieveNumbers(request):
     if request.POST:
         new = Ticket.objects.create(user = email, selectednumber=selectednum, week=gaming, amount=amount)
         new.save()
-        user = Custom.objects.get(email = email)
+        user = Account.objects.get(email = email)
         user.balance -= amount
         user.save()
     return HttpResponse('submitted successfully')

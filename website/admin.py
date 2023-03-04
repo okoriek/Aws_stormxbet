@@ -12,23 +12,23 @@ class AccountAdmin(UserAdmin):
     filter_horizontal = ()
     list_filter = ()
     fieldsets = ()
-admin.site.register(Custom, AccountAdmin)
+admin.site.register(Account, AccountAdmin)
 
 
 @admin.register(Game)
-class CustomGame(admin.ModelAdmin):
+class AccountGame(admin.ModelAdmin):
     list_display = ('week','user','generatedresult','selectednumber', 'winning', 'status')
     search_fields = ('user',)
     list_filter = ('status',)
 
 @admin.register(CallRequest)
-class CustomCall(admin.ModelAdmin):
+class AccountCall(admin.ModelAdmin):
     list_display = ('name','mobile_number','attended_to')
     search_fields = ('name','mobile_number')
     list_filter = ('attended_to','date_created',)
 
 @admin.register(Commission)
-class CustomCommission(admin.ModelAdmin):
+class AccountCommission(admin.ModelAdmin):
     list_display = ('user','reward','date_created', 'completed')
     search_fields = ('user',)
     list_filter = ('date_created',)

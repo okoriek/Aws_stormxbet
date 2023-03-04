@@ -36,7 +36,7 @@ FLUTTERWAVE_SECRET_KEY =os.getenv('FLUTTERWAVE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =False
+DEBUG =True
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,7 +77,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'stormxbet.urls'
 
-AUTH_USER_MODEL = 'website.Custom'
+AUTH_USER_MODEL = 'website.Account'
 
 TEMPLATES = [
     {
@@ -160,11 +160,11 @@ DATABASES = {
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST='smtppro.zoho.com'
+EMAIL_HOST_PASSWORD='WyQwJ4f53UyK'
+EMAIL_HOST_USER='admin@stormxbet.com'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER =os.getenv('EMAIL_HOST_USER')
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD =os.getenv('EMAIL_HOST_PASSWORD')
 
 
 
@@ -174,8 +174,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID =os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY =os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID='AKIA2OYYUX6SNI3FTV6T'
+AWS_SECRET_ACCESS_KEY='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'
 AWS_STORAGE_BUCKET_NAME = 'stormxbet'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

@@ -3,3 +3,6 @@ celery
 
 celery_beat
     celery -A Project beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+external
+    postgres://kwex:7TofwxDViF1o8f5wIMZ05UDbVMerB4zk@dpg-cg1108u4dadfmcoo5df0-a.oregon-postgres.render.com/stormxbet_b805

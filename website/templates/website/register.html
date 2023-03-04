@@ -21,50 +21,58 @@
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.first_name.label_tag}}
+                            <span>*</span>
                             {{forms.first_name}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.last_name.label_tag}}
+                            <span>*</span>
                             {{forms.last_name}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.email.label_tag}}
+                            <span>*</span>
                             {{forms.email}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.username.label_tag}}
+                            <span>*</span>
                             {{forms.username}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.phone_number.label_tag}}
+                            <span>*</span>
                             {{forms.phone_number}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             <label for="referral">Referral:</label>
+                            <span style="float: right; padding-right: 10px;">optional</span>
                             <input type="text" id="referral" name="refercode">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.password1.label_tag}}
+                            <span>&ast;</span>
                             {{forms.password1}}
-                            <p class="guild_text">Must contain at least one number,
+                            <p class="guild_text" style="display: none;">Must contain at least one number,
                                 aphablet, and at least 8 or more characters</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single-input">
                             {{forms.password2.label_tag}}
+                            <span>*</span>
                             {{forms.password2}}
                             <p class="guild_text_confirm"></p>
                         </div>
@@ -82,6 +90,7 @@
 <script>
     $('#id_password1').focus(function(){
         $('.guild_text').css('display', 'flex')
+        $('.guild_text').css('color', 'red')
     })
     $('#id_password1').blur(function(){
         $('.guild_text').css('display', 'none')

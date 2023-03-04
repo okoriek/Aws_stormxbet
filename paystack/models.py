@@ -39,13 +39,13 @@ class Paystack(models.Model):
                 self.verified = True
             self.save()
         if self.verified:
-            user = Custom.objects.get(email = self.email)
+            user = Account.objects.get(email = self.email)
             user.balance += int(self.amount)
             try:
                 amount = (int(self.amount) * 2) / 100
                 ref_bonus =  Commission.objects.create(user = user.recommended_by, reward=amount, completed = self.verified)
                 ref_bonus.save()
-                referral = Custom.objects.get(email = user.recommended_by)
+                referral = Account.objects.get(email = user.recommended_by)
                 referral.commissions += amount
                 referral.save()
             except:

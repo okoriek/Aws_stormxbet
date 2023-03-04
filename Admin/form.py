@@ -3,8 +3,9 @@ from dataclasses import field
 import email
 import django_filters
 from django.contrib.auth import forms
-from website.models import Custom
+from website.models import Account
 from paystack.models import Paystack
+
 
 
 class UserFilter(django_filters.FilterSet):
@@ -12,7 +13,7 @@ class UserFilter(django_filters.FilterSet):
     mobile_no = django_filters.CharFilter(field_name='phone_number', lookup_expr='iexact')
 
     class Meta:
-        model = Custom
+        model = Account
         fields = ('email', 'phone_number')
 
 class PaystackFilter(django_filters.FilterSet):

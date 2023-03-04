@@ -1,15 +1,15 @@
 from .form import UserFilter,PaystackFilter, FlutterwaveFilter
 from django.shortcuts import render,redirect
-from website.models import Custom, GameRound
+from website.models import Account, GameRound
 from paystack.models import Paystack
 from flutterwave.models import FlutterWave
 
 
-def CustomAdmin(request):
+def AccountAdmin(request):
     if request.user.is_staff:
         paystack = Paystack.objects.all().filter(verified=True)
         flutter = FlutterWave.objects.all().filter(verified=True)
-        user = Custom.objects.all().count()
+        user = Account.objects.all().count()
         amount = 0
         for i in paystack:
             amount += int(i.amount)
@@ -22,7 +22,7 @@ def CustomAdmin(request):
 
 def Userfilter(request):
     if request.user.is_staff:
-        user = Custom.objects.all()
+        user = Account.objects.all()
         users = UserFilter(request.GET, queryset=user)
         user = users.qs
         args = {'user':user,'users':users}

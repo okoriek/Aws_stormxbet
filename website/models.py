@@ -45,7 +45,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 
-class Custom(AbstractBaseUser):
+class Account(AbstractBaseUser):
     first_name    = models.CharField(max_length=100)
     last_name     = models.CharField(max_length=100)
     username     = models.CharField(max_length=100, unique=True)
@@ -161,7 +161,7 @@ class Game(models.Model):
         ('loss', 'LOSS')
     )
     week = models.ForeignKey(GameRound, on_delete=models.CASCADE, blank=True, null=True)
-    user = models.ForeignKey(Custom, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0, blank=True, null=True)
     generatedresult = ArrayField(models.CharField(max_length=2),blank=True, null=True)
     winning =  models.IntegerField(blank=True, null=True)
@@ -231,7 +231,7 @@ class WithdrawalPayment(models.Model):
         ('pending', 'PENDING'),
         ('conpleted', 'COMPLETED')
     )
-    user  =  models.ForeignKey(Custom, on_delete=models.CASCADE, blank=True, null=True)
+    user  =  models.ForeignKey(Account, on_delete=models.CASCADE, blank=True, null=True)
     account_name = models.CharField(max_length=200, blank=True, null=True)
     amount = models.CharField(max_length=50, blank=True, null=True)
     bank_code = models.CharField(max_length=50, blank=True, null=True)
@@ -280,7 +280,7 @@ class Ticket(models.Model):
         ('loss', 'LOSS')
     )
     week = models.ForeignKey(LotteryRound, on_delete=models.CASCADE, blank=True, null=True)
-    user = models.ForeignKey(Custom, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0, blank=True, null=True)
     generatedresult = ArrayField(models.CharField(max_length=2),blank=True, null=True)
     winning =  models.IntegerField(blank=True, null=True)
@@ -327,15 +327,15 @@ class Ticket(models.Model):
                     if len(confirmed) == 3:
                         self.winning = int(self.amount * 3)
                         self.status = 'won'
-                        Custom.balance += self.winning
+                        Account.balance += self.winning
                     elif len(confirmed) == 4:
                         self.winning = int(self.amount * 4)
                         self.status = 'won'
-                        Custom.balance += self.winning
+                        Account.balance += self.winning
                     elif len(confirmed) == 4:
                         self.winning = int(self.amount * 10)
                         self.status = 'won'
-                        Custom.balance += self.winning
+                        Account.balance += self.winning
                     else:
                         self.status ='loss'
         except:

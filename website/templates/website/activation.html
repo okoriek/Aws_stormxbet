@@ -1,3 +1,4 @@
+{% load static %}
 {% autoescape off %}
 
 <!DOCTYPE html>
@@ -21,17 +22,17 @@
 
 <body>
     <div class="container-fluid">
-        <div style="background-color:#463b9f; height: 25vh; width: 100%; margin: 0;">
-            <h4 style="text-align: center; padding-top: 60px; color: white;">Verification Mail</h4>
+        <div style="background-color:#463b9f; height: 15vh; width: 100%; margin: 0;">
+            <h2 style="text-align: center; padding: 20px; color: white;">Verification Mail</h2>
         </div>
         <div
-            style="background-color:white; height: auto; padding-top:40px; padding-left:20px; padding-bottom: 40px; width: 100%;  margin: 0;">
+            style="background-color:white; height: auto; padding-top:40px; padding-left:20px; padding-right: 20px; padding-bottom: 40px; width: 100%;  margin: 0;">
             <strong>
                 <p>Hello {{user}}</p>
             </strong>
             
-            <p>We recieved you application sucessfully,we are grateful
-                to you accepting to be part the family, to complete the process click on activate.
+            <p>We recieved you application sucessfully, we are grateful
+                to you for accepting to be part of the family, to complete the process click on activate.
             </p>
 
             <p>Regards.</p>
@@ -40,13 +41,13 @@
             </Strong>
             <br>
             <br>
-            <a style="background-color: #463b9f; color: white; padding: 10px 10px; border-radius: 10px;"
+            <a style="background-color: #463b9f; color: white; padding: 10px 10px; border-radius: 10px; text-decoration: none;"
                 href="http://{{domain}}{% url 'verification' uidb64=uid token=token %}">Activate</a>
         </div>
-        <div style="background-color:#463b9f; height: 25vh; width: 100%; margin: 0; text-align: center;">
+        <div style="background-color:#463b9f; height: 20vh; width: 100%; margin: 0; text-align: center;">
             <img src="{% static 'assets/images/stormxbet.png' %}" class="logo" alt="logo"
-                style="width: 120px; align-items: center; margin: 10px auto;">
-            <p style="color: white;">Copyright @2023 Stormxbet</p>
+                style="width: 120px; align-items: center; margin: 15px auto;">
+            <p style="color: white; padding-bottom: 10px;">Copyright @2023 Stormxbet</p>
         </div>
     </div>
 </body>
