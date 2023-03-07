@@ -36,9 +36,9 @@ FLUTTERWAVE_SECRET_KEY =os.getenv('FLUTTERWAVE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG =True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['stormxbet.com', '216.24.57.1']
 
 
 # Application definition
