@@ -24,7 +24,7 @@ class AccountGame(admin.ModelAdmin):
 
 @admin.register(CallRequest)
 class AccountCall(admin.ModelAdmin):
-    list_display = ('name','mobile_number','attended_to')
+    list_display = ('name','mobile_number','attended_to', 'date_created')
     search_fields = ('name','mobile_number')
     list_filter = ('attended_to','date_created',)
 

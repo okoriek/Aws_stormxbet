@@ -4,9 +4,6 @@
 <!-- Banner Section start -->
 <section class="banner-section inner-banner contact">
     <div class="overlay">
-        <div class="shape-area">
-            <img src="{% static 'assets/images/contact-illus.png' %}" class="contact-illu" alt="image">
-        </div>
         <div class="banner-content">
             <div class="container">
                 <div class="row">
@@ -38,15 +35,21 @@
                 <div class="col-lg-6">
                     <div class="section-header text-center">
                         <h2 class="title">Get in touch with us</h2>
-                        <p>Fill up the form and our team will get back to you within 24 hours</p>
                     </div>
                 </div>
             </div>
-            <div><span>
-                    <h5>Email us: </h5>
-                </span><span style="float: right; padding-top:5px;">stormxbet@mail.com</span></div>
+            <span>
+                <h5>Email us: </h5>
+            </span>
+            <span style="float: right; padding-top:5px;">customer-service@stormxbet.com</span>
             <br>
+            <br>
+            {% if user.is_authenticated %}
             <h3 class="title text-center" style="text-decoration: underline;">Request a callback</h3>
+            <center>
+                <p>Our team will get back to you within 24 hours</p>
+            </center>
+            <br>
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="form-content">
@@ -54,27 +57,42 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="single-input">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Enter Your Name?">
+                                        <label for="name">Name:</label>
+                                        <input type="text" id="name" name="name" value="{{request.user.first_name}}"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-input">
-                                        <label for="phone">Phone</label>
-                                        <input type="number" id="phone" name="phone">
+                                        <label for="phone">Phone:</label>
+                                        <input type="number" id="phone" name="phone"
+                                            value="{{request.user.phone_number}}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-10">
                                     <div class="btn-border w-100 mt-40">
-                                        <button class="cmn-btn w-100" id="send">Send</button>
+                                        <button class="cmn-btn w-100" id="send">Send <span style="display: none;"
+                                                class="spinner-border spinner-border-sm" id="spinner" role="status"
+                                                aria-hidden="true"></span></button>
                                     </div>
                                 </div>
+                                <p style="color: yellow; padding-top: 20px;">N.B: Requesting for call more than once,
+                                    could prolong the time of been call back as
+                                    call request are processed orderly
+                                </p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            {% else %}
+            <center>
+                <p>Login to request for callback</p>
+            </center>
+            {% endif %}
+
         </div>
+    </div>
     </div>
 </section>
 <!-- Contact In end -->
@@ -88,7 +106,7 @@
                     <div class="section-header text-center">
                         <h5 class="sub-title">Frequently Asked Questions</h5>
                         <h2 class="title">If you have questions we have answer</h2>
-                        <p>Answers for our most popular questions about sportsbetting, crypto, and bitbetio</p>
+                        <p>Answers for our most popular questions about Stormxbet</p>
                     </div>
                 </div>
             </div>
@@ -121,12 +139,8 @@
                                         <div id="collapseGeneralOne" class="accordion-collapse collapse"
                                             aria-labelledby="headingGeneralOne" data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>To be a winner at Stormxbet, you need to register, make deposit and
+                                                    try out some of the game is easy and straight forward</p>
                                             </div>
                                         </div>
                                     </div>
@@ -141,12 +155,8 @@
                                         <div id="collapseGeneralTwo" class="accordion-collapse collapse"
                                             aria-labelledby="headingGeneralTwo" data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>Payment to your account will be processed when initiated, and it teke
+                                                    less than 15mins.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -162,12 +172,8 @@
                                             aria-labelledby="headingGeneralThree"
                                             data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>No commission is required of you,instead we reward you through our
+                                                    affiliate program</p>
                                             </div>
                                         </div>
                                     </div>
@@ -182,12 +188,8 @@
                                         <div id="collapseGeneralsix" class="accordion-collapse collapse"
                                             aria-labelledby="headingGeneralsix" data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>Our rules are transparent, result are not manipulated, one result for
+                                                    every round.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -203,12 +205,7 @@
                                             aria-labelledby="headingGeneralsaven"
                                             data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>Yes Stormxbet is secure, your security is our priority.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -224,12 +221,8 @@
                                             aria-labelledby="headingGeneraleight"
                                             data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>To make deposit click on deposit, then select the from the available
+                                                    option.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -244,12 +237,8 @@
                                         <div id="collapseGeneralNight" class="accordion-collapse collapse"
                                             aria-labelledby="headingGeneralNine" data-bs-parent="#accordionFaqsGeneral">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>To withdraw navigate to your profile, the click on withdrawal and
+                                                    fill in details</p>
                                             </div>
                                         </div>
                                     </div>
@@ -268,19 +257,15 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseAffiliateOne"
                                                 aria-expanded="false" aria-controls="collapseAffiliateOne">
-                                                I want to play at Bitbetio, What do i need to do?
+                                                How do i enroll for the Affiliate Program?
                                             </button>
                                         </h5>
                                         <div id="collapseAffiliateOne" class="accordion-collapse collapse"
                                             aria-labelledby="headingAffiliateOne"
                                             data-bs-parent="#accordionFaqsAffiliate">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>Once you are a register user, you can take part in the affiliate
+                                                    program by referring other to user stormxbet </p>
                                             </div>
                                         </div>
                                     </div>
@@ -289,19 +274,15 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseAffiliateTwo"
                                                 aria-expanded="false" aria-controls="collapseAffiliateTwo">
-                                                How fast do I get paid once I win a bet?
+                                                What are the benifit involve?
                                             </button>
                                         </h5>
                                         <div id="collapseAffiliateTwo" class="accordion-collapse collapse"
                                             aria-labelledby="headingAffiliateTwo"
                                             data-bs-parent="#accordionFaqsAffiliate">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>For every deposit made by your referral your will recieve a certain
+                                                    per irrespective of the amount deposited</p>
                                             </div>
                                         </div>
                                     </div>
@@ -310,19 +291,15 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseAffiliateThree"
                                                 aria-expanded="false" aria-controls="collapseAffiliateThree">
-                                                What are the commissions I have to pay?
+                                                How do i recieve my commission?
                                             </button>
                                         </h5>
                                         <div id="collapseAffiliateThree" class="accordion-collapse collapse"
                                             aria-labelledby="headingAffiliateThree"
                                             data-bs-parent="#accordionFaqsAffiliate">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>Commission with credited once deposit is confirmed, when it's a ₦1000
+                                                    it will be credited to your main balance.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -331,124 +308,15 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseAffiliateFour"
                                                 aria-expanded="false" aria-controls="collapseAffiliateFour">
-                                                Can I set the odds for any bet I want?
+                                                Can i withdraw my commission
                                             </button>
                                         </h5>
                                         <div id="collapseAffiliateFour" class="accordion-collapse collapse"
                                             aria-labelledby="headingAffiliateFour"
                                             data-bs-parent="#accordionFaqsAffiliate">
                                             <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h5 class="accordion-header" id="headingAffiliateFive">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseAffiliateFive"
-                                                aria-expanded="false" aria-controls="collapseAffiliateFive">
-                                                What kind of Escrow do you provide?
-                                            </button>
-                                        </h5>
-                                        <div id="collapseAffiliateFive" class="accordion-collapse collapse"
-                                            aria-labelledby="headingAffiliateFive"
-                                            data-bs-parent="#accordionFaqsAffiliate">
-                                            <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h5 class="accordion-header" id="headingAffiliatesix">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseAffiliatesix"
-                                                aria-expanded="false" aria-controls="collapseAffiliatesix">
-                                                What makes us unique?
-                                            </button>
-                                        </h5>
-                                        <div id="collapseAffiliatesix" class="accordion-collapse collapse"
-                                            aria-labelledby="headingAffiliatesix"
-                                            data-bs-parent="#accordionFaqsAffiliate">
-                                            <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h5 class="accordion-header" id="headingAffiliatesaven">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseAffiliatesaven"
-                                                aria-expanded="false" aria-controls="collapseAffiliatesaven">
-                                                Is the Escrow payment secured?
-                                            </button>
-                                        </h5>
-                                        <div id="collapseAffiliatesaven" class="accordion-collapse collapse"
-                                            aria-labelledby="headingAffiliatesaven"
-                                            data-bs-parent="#accordionFaqsAffiliate">
-                                            <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h5 class="accordion-header" id="headingAffiliateeight">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseAffiliateeight"
-                                                aria-expanded="false" aria-controls="collapseAffiliateeight">
-                                                How do I deposit/transfer money to my transactions?
-                                            </button>
-                                        </h5>
-                                        <div id="collapseAffiliateeight" class="accordion-collapse collapse"
-                                            aria-labelledby="headingAffiliateeight"
-                                            data-bs-parent="#accordionFaqsAffiliate">
-                                            <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h5 class="accordion-header" id="headingAffiliateNine">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseAffiliateNight"
-                                                aria-expanded="false" aria-controls="collapseAffiliateNight">
-                                                How do I withdraw money from my Bitbetio Bets account?
-                                            </button>
-                                        </h5>
-                                        <div id="collapseAffiliateNight" class="accordion-collapse collapse"
-                                            aria-labelledby="headingAffiliateNine"
-                                            data-bs-parent="#accordionFaqsAffiliate">
-                                            <div class="accordion-body">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever
-                                                    since the 1500s, when an unknown printer took a galley of type
-                                                    and
-                                                    scrambled it to make a type specimen book.</p>
+                                                <p>You can withdraw your commission when it has been credited to your
+                                                    main balance</p>
                                             </div>
                                         </div>
                                     </div>
@@ -467,6 +335,9 @@
 
         var submit = document.getElementById('send')
         submit.addEventListener('click', (e) => {
+            $('#send').prop('disabled', true)
+            console.log("you clicked me")
+            $('#spinner').css('display', 'inline-flex')
             e.preventDefault()
             $.ajax({
                 type: 'POST',
@@ -478,10 +349,14 @@
 
                 },
                 success: function (response) {
-                    
+                    $('#spinner').css('display', 'none')
+                    swal('Your request has been recieved.')
+                    $('#send').prop('disabled', false)
                 },
                 error: function (error) {
-                    console.log(error)
+                    $('#spinner').css('display', 'none')
+                    swal('Error submitting request try again')
+                    $('#send').prop('disabled', false)
                 }
             })
 

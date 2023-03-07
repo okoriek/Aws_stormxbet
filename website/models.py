@@ -96,7 +96,7 @@ class CallRequest(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
     mobile_number =  models.CharField(max_length=11, blank=True, null=True)
     attended_to =  models.BooleanField(default=False)
-    date_created =  models.DateTimeField(default=timezone.now)
+    date_created =  models.DateTimeField(auto_now=True)
 
 
     class Meta:

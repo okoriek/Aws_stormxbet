@@ -75,7 +75,7 @@ def Register(request):
                 'token': TokenGenerator.make_token(user)
             })
             email = EmailMessage(subject=email_subject, body=email_body,
-                from_email='admin@stormxbet.com', to=[user.email]
+                from_email='Stormxbet <admin@stormxbet.com>', to=[user.email]
                 )
             email.content_subtype='html'
             email.send()
@@ -129,13 +129,16 @@ def Help(request):
     
     return render(request, 'website/contact.html')
 
-
-
+# Defining call request
 def ContactUs(request):
     name = request.POST['name']
     phone_number = request.POST['phone']
-    new_call =  CallRequest.objects.create(name = name, mobile_number = phone_number)
-    new_call.save()
+    try:
+        calls =  CallRequest.objects.get(name=name, mobile_number =phone_number, attended_to=False)
+        calls.save()
+    except:
+        new_call =  CallRequest.objects.create(name = name, mobile_number = phone_number)
+        new_call.save()
     return JsonResponse('Call request intiated succesfully', safe=False)
 
 def GetBalance(request):
