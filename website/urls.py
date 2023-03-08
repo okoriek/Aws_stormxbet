@@ -32,6 +32,7 @@ urlpatterns = [
    path('dashboard/', views.Dashboard, name='dashboard'),
    path('getbalance/', views.GetBalance, name='balance'),
    path('affiliate/', views.Affilate, name='affiliate'),
+   path('term_and_conditions/', views.TermsCondition, name='terms' ),
    path('help/', views.Help, name='help'),
    path('contact/', views.ContactUs, name='contact'),
    

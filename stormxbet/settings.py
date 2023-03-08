@@ -171,6 +171,7 @@ EMAIL_HOST_PASSWORD='WyQwJ4f53UyK'
 EMAIL_HOST_USER='admin@stormxbet.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'Stormxbet <admin@stormxbet.com>'
 
 
 

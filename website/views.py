@@ -141,6 +141,12 @@ def ContactUs(request):
         new_call.save()
     return JsonResponse('Call request intiated succesfully', safe=False)
 
+#Creating terms and conditions
+def TermsCondition(request):
+
+    return render(request, 'website/terms.html')
+
+
 def GetBalance(request):
     user =  request.user
     profile =  Account.objects.get(email = user)
