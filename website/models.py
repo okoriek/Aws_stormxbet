@@ -46,9 +46,9 @@ class MyUserManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    first_name    = models.CharField(max_length=100)
-    last_name     = models.CharField(max_length=100)
-    username     = models.CharField(max_length=100, unique=True)
+    first_name    = models.CharField(max_length=20)
+    last_name     = models.CharField(max_length=20)
+    username     = models.CharField(max_length=20, unique=True)
     email         = models.EmailField(max_length=100, unique=True)
     phone_number  = models.CharField(max_length=100)
     code = models.CharField(max_length=8, blank=True, unique=True, null=True,default=get_random_string(length=8))
@@ -327,20 +327,70 @@ class Ticket(models.Model):
                     if len(confirmed) == 3:
                         self.winning = int(self.amount * 3)
                         self.status = 'won'
-                        Account.balance += self.winning
+                        self.user.balance += self.winning
+                        self.user.save()
                     elif len(confirmed) == 4:
                         self.winning = int(self.amount * 4)
                         self.status = 'won'
-                        Account.balance += self.winning
+                        self.user.balance += self.winning
+                        self.user.save()
                     elif len(confirmed) == 4:
                         self.winning = int(self.amount * 10)
                         self.status = 'won'
-                        Account.balance += self.winning
+                        self.user.balance += self.winning
+                        self.user.save()
                     else:
                         self.status ='loss'
         except:
             pass
         super().save(*args, **kwargs)
+
+class DiceRoll(models.Model):
+    STATUS = (
+        ('Won', 'WON'),
+        ('Loss', 'LOSS'),
+    )
+    OPTION = (
+        ('Over seven', 'OVER SEVEN'),
+        ('Under seven', 'UNDER SEVEN'),
+        ('Exact seven', 'EXACT SEVEN'),
+        ('Over nine', 'OVER NINE'),
+        ('Exact twelve', 'EXACT TWELVE'),
+
+    )
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, blank=True, null=True)
+    first_roll  = models.IntegerField(default=0, blank=True, null=True)
+    second_roll  = models.IntegerField(default=0, blank=True, null=True)
+    stake = models.IntegerField(default=0, blank=True, null=True)
+    options = models.CharField(max_length=60, choices=OPTION,blank=True, null=True)
+    status =  models.CharField(max_length=10, choices=STATUS, blank=True, null=True)
+    winnings =  models.IntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user}     {self.status}"
+    
+    def save(self, *args, **kwargs):
+        if self.status == 'Won' and self.options == 'Over seven':
+            self.winnings = int(self.stake) * 2     
+        elif self.status == 'Won' and self.options == 'Under seven':
+            self.winnings = int(self.stake) * 2
+            self.user.balance += self.winnings
+        elif self.status == 'Won' and self.options == 'Exact seven':
+            self.winnings = int(self.stake) * 5
+            self.user.balance += self.winnings
+        elif self.status == 'Won' and self.options == 'Over nine':
+            self.winnings = int(self.stake) * 5
+            self.user.balance += self.winnings
+        elif self.status == 'Won' and self.options == 'Exact twelve':
+            self.winnings = int(self.stake) * 10
+            self.user.balance += self.winnings
+        else:
+            pass
+        super().save(*args, **kwargs)
+    
+
+
+
 
     
 

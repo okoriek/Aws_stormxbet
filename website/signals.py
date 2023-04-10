@@ -1,4 +1,4 @@
-from . models import GameRound, LotteryRound
+from . models import GameRound, LotteryRound, DiceRoll, Account
 from django.contrib.auth.models import User
 from paystack.models import Paystack
 from flutterwave.models import FlutterWave
@@ -65,6 +65,14 @@ def CreateNewRoound(sender,  instance, created, **kwargs):
             print('New Round Created Succesfully')
             count += 1
             timing +=7
+
+@receiver(post_save, sender = DiceRoll)
+def UpdateUserBalance(sender, instance , created, **kwargs):
+    if created == False:
+        if instance.status == 'Won':
+            user = Account.objects.get(email=instance.user)
+            user.balance +=  instance.winnings
+            user.save()
         
     
     

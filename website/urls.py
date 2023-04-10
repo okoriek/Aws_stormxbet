@@ -71,5 +71,9 @@ urlpatterns = [
 
 
 
-   path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+   path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+   path('gaming/dice/', views.DiceRollview, name='dice'),
+   path('submitDiceResult/', views.SubmitDiceRoll, name='dicesubmit'),
+   path('getdiceresult/', views.GetAmount, name='diceresult'),
 ]

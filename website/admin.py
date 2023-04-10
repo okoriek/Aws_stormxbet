@@ -41,5 +41,6 @@ admin.site.register(GameRound)
 admin.site.register(Ticket)
 admin.site.register(LotteryRound)
 admin.site.register(WithdrawalPayment)
+admin.site.register(DiceRoll)
 
 

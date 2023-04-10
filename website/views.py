@@ -375,6 +375,68 @@ def LotteryResultHistory(request):
     return render(request, 'website/lotteryresulthistory.html', args)
 
 
+# Dice coding and functioning
+def DiceRollview(request):
+
+    return render(request, 'website/dice.html')
+@csrf_exempt
+def SubmitDiceRoll(request):
+    amount =  request.POST['amount']
+    option =  request.POST['optiondice']
+    first_outcome = request.POST['first']
+    second_outcome =  request.POST['second']
+    
+    summing = int(first_outcome) + int(second_outcome)
+
+    if option == 'over7':
+        opt  = 'Over seven'
+        if summing > 7:
+            result = 'Won'
+        else:
+            result = 'Loss'
+    elif option == 'under7':
+        opt =  'Under seven'
+        if summing < 7:
+            result = 'Won'
+        else:
+            result = 'Loss'
+    elif option == 'exact7':
+        opt = 'Exact seven'
+        if summing == 7:
+            result = 'Won'
+        else:
+            result = 'Loss'
+    elif option == 'over9':
+        opt = 'Over nine'
+        if summing > 9:
+            result = 'Won'
+        else:
+            result = 'Loss'
+    elif option == 'exact12':
+        opt = 'Exact twelve'
+        if summing == 12:
+            result = 'Won'
+        else:
+            result = 'Loss'
+
+    new_game = DiceRoll.objects.create(user = request.user,
+    stake = int(amount),
+    options = opt,
+    first_roll = first_outcome,
+    second_roll =  second_outcome,
+    status = result
+    )
+    user =  Account.objects.get(email = request.user)
+    user.balance -= new_game.stake
+    user.save()
+    new_game.save()
+    return JsonResponse('Data submitted successfully', safe=False)
+
+def GetAmount(request):
+    bal =  Account.objects.get(email = request.user)
+    result = DiceRoll.objects.filter(user = request.user).last()
+    return JsonResponse({'amount':bal.balance, 'winning':result.winnings})
+
 
 
 

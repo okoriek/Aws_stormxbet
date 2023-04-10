@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Stormxbet deliver the best virtual games experience,transparent result,Here winning is sure.">
+    <meta name="description"
+        content="Stormxbet deliver the best virtual games experience,transparent result,Here winning is sure.">
     <meta name="keywords" content="bet, stormxbet, storm, virtaul, game">
     <title>Stormxbet</title>
 
 
-    <link rel="shortcut icon" href="{% static 'assets/images/stormxbetmini.png' %}" type="image/x-icon">
+    <link rel="shortcut icon"  href="{% static 'assets/images/stormxbeticon.png' %}" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,94 +42,109 @@
     <!-- header-section start -->
     <header class="header-section">
         {% if user.is_authenticated %}
-        
-            <div class="container">
-                <div class="row d-flex header-area">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{% url 'home' %}">
-                            <img src="{% static 'assets/images/stormxbet.png' %}" class="logo" alt="logo"
-                                style="width: 120px;">
-                        </a>
-                        <span class="dropdown ms-auto d-lg-none">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i
-                                            class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}"><i
-                                            class="fas fa-sign-out-alt"></i> Logout</a></li>
-                            </ul>
-                        </span>
-                        <span style="padding-left: 10px; font-size: large;" class="d-lg-none">₦<span
-                                class="bal d-lg-none">{{request.user.balance}}</span></span>
-                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbar-content">
-                            <i class="fas fa-bars"></i>
+
+        <div class="container">
+            <div class="row d-flex header-area">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <img src="{% static 'assets/images/stormxbet.png' %}" class="logo" alt="logo"
+                            style="width: 120px;">
+                    </a>
+                    <span class="dropdown ms-auto d-lg-none">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
                         </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
-                            <div class="navbar-nav mr-auto mb-2 mb-lg-0 customnav ">
-                                <span class="nav-item">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i
+                                        class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>
+                                    Logout</a></li>
+                        </ul>
+                    </span>
+                    <span style="padding-left: 10px; font-size: large;" class="d-lg-none">₦<span
+                            class="bal d-lg-none">{{request.user.balance}}</span></span>
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbar-content">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                        <div class="navbar-nav mr-auto mb-2 mb-lg-0 customnav ">
+
+
+                            <li class="nav-item dropdown main-navbar d-none d-lg-block">
+                                <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside"><i class="fa-solid fa-user"></i></a>
+                                <ul class="dropdown-menu main-menu shadow">
                                     <a class="nav-link active text-light " aria-current="page"
-                                        href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
-                                </span>
-                                <li class="nav-item dropdown main-navbar d-none d-lg-block">
-                                    <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
-                                        data-bs-auto-close="outside"><span>Games</i></a></span>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <a class="nav-link active text-light " aria-current="page" href=""><i
-                                                class="fas fa-dharmachakra"></i> Spin&win <i class="fa-solid fa-lock"></i></a>
-                                        <a class="nav-link active text-light " aria-current="page"
-                                            href="{% url 'lottery' %}"><i class="fas fa-bowling-ball"></i> Lottery</a>
-                                    </ul>
-                                </li>
+                                        href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i>
+                                        Dashbord</a>
+                                    <a class="nav-link active text-light " aria-current="page"
+                                        href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
 
-                                <li class="nav-item dropdown main-navbar d-none d-lg-block">
-                                    <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
-                                        data-bs-auto-close="outside">Balance</a>
-                                    <span class="dropdown-menu main-menu shadow">
-                                        <span class="bal d-none d-lg-block"><span>main:</span>{{request.user.balance}}</span>
-                                        {% if request.user.balance %}
-                                            <span class="bonus d-none d-lg-block"><span>bonus:</span>0</span>
-                                        {% else %}
-                                            {{empty}}
-                                        {% endif %}
-                                    </span>
-                                </li>
+                                </ul>
+                            </li>
 
-                                <li class="nav-item dropdown main-navbar d-none d-lg-block">
-                                    <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
-                                        data-bs-auto-close="outside"><i class="fa-solid fa-user"></i></a>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <a class="nav-link active text-light " aria-current="page"
-                                            href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i>
-                                            Dashbord</a>
-                                        <a class="nav-link active text-light " aria-current="page"
-                                            href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
-
-                                    </ul>
-                                </li>
-                               
-                                <span class="nav-item">
-                                    <a class="nav-link active text-light d-lg-none" aria-current="page"
-                                        href="{% url 'lottery' %}"><i class="fa-solid fa-briefcase"></i>
+                            <li class="nav-item dropdown main-navbar d-none d-lg-block">
+                                <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside"><span>Games</i></a></span>
+                                <ul class="dropdown-menu main-menu shadow">
+                                    <a class="nav-link active text-light " aria-current="page"
+                                        href="{% url 'home' %}"><i class="fa-solid fa-bowling-ball fa-bounce"></i>
+                                        8Balls</a>
+                                    <a class="nav-link active text-light " aria-current="page" href="{% url 'dice'%}"><i
+                                            class="fa-solid fa-dice fa-shake"></i> Dices</a>
+                                    <a class="nav-link active text-light " aria-current="page"
+                                        href="{% url 'lottery' %}"><i class="fa-solid fa-briefcase fa-bounce"></i>
                                         Lottery</a>
-                                </span>
-                                
-                                <span class="nav-item">
-                                    <a class="nav-link active text-light d-lg-none" aria-current="page" href="#"><i
-                                            class="fa-solid fa-dharmachakra"></i> Spinwin <i class="fa-solid fa-lock"></i></a>
-                                </span>
-                                <span class="nav-item">
-                                    <a class="nav-link active text-light " aria-current="page" href="{% url 'help' %}"><i
-                                            class="fas fa-info-circle"></i> Help</a>
-                                </span>
-                            </div>
+                                    <a class="nav-link active text-light " aria-current="page" href=""><i
+                                            class="fas fa-dharmachakra fa-spin"></i> Spin&win <i
+                                            class="fa-solid fa-lock"></i></a>
+                                </ul>
+                            </li>
+
+                            <span class="nav-item d-none d-lg-block">
+                                <span style="font-size: smaller;">main:<span class="bal d-none d-lg-block"
+                                        style="font-size: smaller; float: right; padding-top: 1px;">
+                                        {{request.user.balance}}</span></span>
+                                <br>
+                                <span style="font-size: smaller;">bonus:<span class="bal d-none d-lg-block"
+                                        style="font-size: smaller; float: right; padding-top: 1px;">
+                                        {{request.user.bonus}}</span></span>
+                            </span>
+
+
+                            <span class="nav-item">
+                                <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                    href="{% url 'dice' %}"><i class="fa-solid fa-bowling-ball fa-bounce"></i>
+                                    8ball</a>
+                            </span>
+
+                            <span class="nav-item">
+                                <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                    href="{% url 'dice' %}"><i class="fa-solid fa-dice fa-shake"></i>
+                                    Dices</a>
+                            </span>
+                            <span class="nav-item">
+                                <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                    href="{% url 'lottery' %}"><i class="fa-solid fa-briefcase fa-bounce"></i>
+                                    Lottery</a>
+                            </span>
+
+                            <span class="nav-item">
+                                <a class="nav-link active text-light d-lg-none" aria-current="page" href="#"><i
+                                        class="fa-solid fa-dharmachakra fa-spin"></i> Spinwin <i
+                                        class="fa-solid fa-lock"></i></a>
+                            </span>
+                            <span class="nav-item">
+                                <a class="nav-link active text-light " aria-current="page" href="{% url 'help' %}"><i
+                                        class="fas fa-info-circle"></i> Help</a>
+                            </span>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
+        </div>
         </div>
 
 
@@ -152,39 +168,49 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
                             <div class="navbar-nav mr-auto mb-2 mb-lg-0 customnav ">
-                                <span class="nav-item">
-                                    <a class="nav-link active text-light " aria-current="page"
-                                        href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
-                                </span>
-
+                                
                                 <li class="nav-item dropdown main-navbar d-none d-lg-block">
-                                    <a class="nav-link " href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Games <i class="fa-solid fa-caret-down"></i></a>
+                                    <a class="nav-link " href="javascript:void(0)" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside"><span>Games</i></a></span>
                                     <ul class="dropdown-menu main-menu shadow">
-                                        <a class="nav-link active text-light " aria-current="page" href="{% url 'lottery' %}">
-                                            <i class="fa-solid fa-briefcase"></i> Lottery</a>
+                                        <a class="nav-link active text-light " aria-current="page"
+                                            href="{% url 'home' %}"><i class="fa-solid fa-bowling-ball fa-bounce"></i>
+                                            8Balls</a>
+                                        <a class="nav-link active text-light " aria-current="page"
+                                            href="{% url 'dice'%}"><i class="fa-solid fa-dice fa-shake"></i> Dices</a>
+                                        <a class="nav-link active text-light " aria-current="page"
+                                            href="{% url 'lottery' %}"><i class="fa-solid fa-briefcase fa-bounce"></i>
+                                            Lottery</a>
                                         <a class="nav-link active text-light " aria-current="page" href=""><i
-                                                class="fas fa-dharmachakra"></i> Spin&win <i class="fa-solid fa-lock"></i></a>
-                                        <a class="nav-link active text-light " aria-current="page" href="{% url 'help' %}"><i
-                                                class="fas fa-info-circle"></i> Help</a>
+                                                class="fas fa-dharmachakra fa-spin"></i> Spin&win <i
+                                                class="fa-solid fa-lock"></i></a>
                                     </ul>
                                 </li>
                                 <span class="nav-item d-none d-lg-block">
                                     <a class="nav-link active text-light " aria-current="page"
                                         href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i> Login</a>
                                 </span>
+                                <span class="nav-item">
+                                    <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                        href="{% url 'dice' %}"><i class="fa-solid fa-bowling-ball fa-bounce"></i>
+                                        8ball</a>
+                                </span>
 
                                 <span class="nav-item">
-                                    <a class="nav-link active text-light d-lg-none" aria-current="page" href="{% url 'lottery' %}">
-                                        <i class="fa-solid fa-briefcase"></i> Lottery</a>
+                                    <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                        href="{% url 'dice' %}"><i class="fa-solid fa-dice fa-shake"></i>
+                                        Dices</a>
                                 </span>
                                 <span class="nav-item">
-                                    <a class="nav-link active text-light d-lg-none" aria-current="page" href=""><i
-                                            class="fas fa-dharmachakra"></i> Spin&win <i class="fa-solid fa-lock"></i></a>
+                                    <a class="nav-link active text-light d-lg-none" aria-current="page"
+                                        href="{% url 'lottery' %}"><i class="fa-solid fa-briefcase fa-bounce"></i>
+                                        Lottery</a>
                                 </span>
+
                                 <span class="nav-item">
-                                    <a class="nav-link active text-light " aria-current="page" href="{% url 'help' %}"><i
-                                            class="fas fa-info-circle"></i> Help</a>
+                                    <a class="nav-link active text-light d-lg-none" aria-current="page" href="#"><i
+                                            class="fa-solid fa-dharmachakra fa-spin"></i> Spinwin <i
+                                            class="fa-solid fa-lock"></i></a>
                                 </span>
                             </div>
                             <button type="button" class="cmn-btn reg d-none d-lg-block">
@@ -216,7 +242,7 @@
                             <ul class="footer-link">
                                 <li><a href="{% url 'help' %}">Contact</a></li>
                                 <li><a href="{% url 'terms' %}">Terms of Services</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -244,7 +270,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
     <script src="{% static 'assets/js/plugin/slick.js' %}"></script>
     <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
