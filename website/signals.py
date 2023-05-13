@@ -35,7 +35,7 @@ def UpdateHistoryFlutterwave(sender,  instance, created, **kwargs):
         print('History updated succesfully')
 
 #created new round
-
+'''
 @receiver(post_save, sender = GameRound)    
 def CreateNewRoound(sender,  instance, created, **kwargs):
     if created == False:
@@ -49,10 +49,10 @@ def CreateNewRoound(sender,  instance, created, **kwargs):
             count += 1
             timing +=3
             
-        
+'''      
 
 #created new lottery round
-
+'''
 @receiver(post_save, sender = LotteryRound)    
 def CreateNewRoound(sender,  instance, created, **kwargs):
     if created == False:
@@ -65,7 +65,7 @@ def CreateNewRoound(sender,  instance, created, **kwargs):
             print('New Round Created Succesfully')
             count += 1
             timing +=7
-
+'''
 @receiver(post_save, sender = DiceRoll)
 def UpdateUserBalance(sender, instance , created, **kwargs):
     if created == False:
