@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'website/dice.css' %}" />
 
 <body style="background-color: #120f54">
-  <div class="container_fluid">
+  <div class="container">
     <div class="success">
       <img
         class="won"
@@ -13,12 +13,15 @@
       <div class="price"></div>
     </div>
 
+    
     <div class="bg">
+      
       <img
-        src="{% static 'assets/images/dicebg.jpg' %}"
+        src="{% static 'assets/images/dicebg.jpeg' %}"
         alt=""
-        style="width: 100%; height: 100%; position: relative; "
+        style="width: 100%; height: 100%; position: relative;"
       />
+      <i class="fa-solid fa-volume-high" id="volume"></i>
       <div class="platform">
         <div class="diceone">
           <div class="face front"></div>
@@ -38,6 +41,9 @@
           <div class="face left"></div>
         </div>
       </div>
+      <audio controls class="dicevol">
+        <source src="{% static 'assets/audio/diceroll.mp3' %}" type="audio/mpeg">
+      </audio>
     </div>
     <button class="roll">Roll Dice</button>
 

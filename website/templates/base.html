@@ -57,7 +57,13 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i
-                                        class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                                        class="fas fa-tachometer-alt"></i> Account</a></li>
+                            <li><a class="dropdown-item" href="{% url 'payment' %}"><i class="fa-solid fa-wallet"></i>
+                                Deposit</a></li>
+                            
+                            <li><a class="dropdown-item" href="{% url 'withdrawal' %}"><i class="fa-solid fa-building-columns"></i>
+                                Withdrawal</a></li>
+
                             <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>
                                     Logout</a></li>
                         </ul>
