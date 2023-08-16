@@ -127,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
+#admin@crimsoniclearningcentre.com.ng.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -168,10 +168,10 @@ DATABASES = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtppro.zoho.com'
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_USER='admin@stormxbet.com'
+EMAIL_HOST_USER='admin@crimsoniclearningcentre.com.ng'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'Stormxbet <admin@stormxbet.com>'
+DEFAULT_FROM_EMAIL = 'Stormxbet <admin@crimsoniclearningcentre.com.ng>'
 
 
 
