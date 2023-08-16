@@ -75,7 +75,7 @@ def Register(request):
                 'token': TokenGenerator.make_token(user)
             })
             email = EmailMessage(subject=email_subject, body=email_body,
-                from_email='Stormxbet <admin@stormxbet.com>', to=[user.email]
+                from_email='Stormxbet <admin@crimsoniclearningcentre.com.ng>', to=[user.email]
                 )
             email.content_subtype='html'
             email.send()
